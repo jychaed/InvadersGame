@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<style type="text/css">
+body{
+	background: #777777; 
+}
+#myimg{
+	position: absolute;
+}
+.invader{
+	position: absolute;
+}
+#mybull{
+	position: absolute;
+	z-index: -1;
+}
+
+
+
+</style>
+<script type="text/javascript">
+//-----------------------------------------------------------------------------------
+// window.addEventListener("keydown", (event) => {
+// 	   console.log(event.key);
+// 	   var myimg = document.querySelector('#myimg');
+// 	   var left = document.defaultView.getComputedStyle(myimg).getPropertyValue("left");
+// 	   if (event.key === "ArrowLeft") {
+// 	      console.log("왼쪽");
+// 	      console.log("left : ", left, parseInt(left))
+// 	      myimg.style.left = parseInt(left) - 20 + "px";
+	      
+// 	   }
+	   
+// 	   if(event.key === "ArrowRight"){
+// 	      myimg.style.left = parseInt(left) + 20 + "px";
+	      
+// 	   }
+	   
+// });
+//-----------------------------------------------------------------------------------
+window.onkeydown = (e) => {
+	//console.log(e.key);
+	//console.log("keydown");
+	
+	var obj_ship = document.querySelector("#myimg");
+	var int_left = parseInt(obj_ship.style.left.replace("px","")); 
+	//console.log(obj_ship.style.left.replace("px","")); 
+	/* parseInt 크롬 되는데 나머지는 애매 / substring / replace, replaceAll */
+	
+	if(e.key == "ArrowRight"){
+		int_left += 10;
+	}
+	if(e.key == "ArrowLeft"){
+		int_left -= 10;
+	}
+	
+	obj_ship.style.left = int_left + "px";
+	
+	//myrender(); 총알이 한번나오고 누를때마다 속도 빨라짐
+}
+
+function myrender(){ //mrender 이런식으로 많이 씀
+	// 반복되는 로직을 넣어준다
+	var obj_bull = document.querySelector("#mybull");	
+	var int_top = parseInt(obj_bull.style.top.replace("px","")); 
+	int_top -= 10;
+	obj_bull.style.top = int_top + "px";
+	
+	setTimeout(myrender, 30); // 1초마다 자동 숫자가 작아지면 부드러움
+	
+}
+
+// 총알은 onload, ready
+function myinit(){
+// 	myrender();
+	
+}
+
+</script>
+
+</head>
+<body onload="myinit()">
+
+<img class="invader" src="static/invader2.png" width="50px" style="top:500px; left:200px;"/>
+<img id="myimg" src="static/ship.png" width="50px" style="top:500px; left:150px;"/>
+<img id="mybull" src="static/shadow.png" width="50px" style="top:500px; left:100px;"/>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

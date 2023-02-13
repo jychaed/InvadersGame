@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+class Animal {
+	constructor() { /* constructor __init 파이썬과 비슷한것 */
+		this.age = 0;
+	}
+	
+	getOlder() {
+		this.age ++;
+	}
+
+}
+
+class Human extends Animal {
+	constructor() {
+		super(); /* super.__init */
+		this.skill_lang = 1;
+	}
+	
+	momstouch(stroke) {
+		this.skill_lang += stroke;
+	}
+
+}
+
+function myinit(){
+// 	var a = new Animal();
+// 	console.log(a.age);
+// 	a.getOlder();
+// 	console.log(a.age);
+	
+	var h = new Human();
+	console.log(h.age);
+	console.log(h.skill_lang);
+	h.getOlder();
+	h.momstouch(5);
+	console.log(h.age);
+	console.log(h.skill_lang);
+	
+	
+}
+</script>
+
+</head>
+<body onload="myinit()">
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
